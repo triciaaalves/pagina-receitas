@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pesquisa de Receitas</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Cabeçalho / Área de Busca -->
+    <header class="header">
+        <div class="header-content">
+            <h1><i class="fas fa-utensils icon-orange"></i> Descubra Novas Receitas</h1>
+            <p class="subtitle">Encontre inspiração para a sua próxima refeição</p>
+
+            <div class="search-bar">
+                <input type="text" id="search-input" placeholder="Digite um ingrediente ou prato...">
+                <button id="search-btn"><i class="fas fa-search"></i></button>
+            </div>
+
+            <p class="api-link">
+                Dados fornecidos por <a href="https://www.themealdb.com/" target="_blank">TheMealDB</a>
+            </p>
+        </div>
+    </header>
+
+    <!-- Área Principal de Resultados -->
+    <main class="container">
+        <div id="error-container" class="hidden error-box">
+            <p><i class="fas fa-exclamation-circle"></i> <span id="error-message"> Nenhuma receita encontrada.</span></p>
+        </div>
+
+        <h2 id="result-heading" class="result-title"></h2>
+
+        <div id="meals" class="meals-grid">
+        </div>
+    </main>
+
+    <!-- Modal de Detalhes da Receita -->
+    <div id="recipe-modal" class="modal hidden">
+        <div class="modal-overlay" id="modal-overlay"></div>
+
+        <div class="modal-card">
+            <div class="modal-layout">
+                <!-- Imagem -->
+                <div class="modal-img-col">
+                    <img id="modal-img" src="" alt="Imagem da receita">
+                    <button id="close-modal-mobile" class="close-btn mobile-only"><i class="fas fa-times"></i></button>
+                </div>
+
+                <!-- Informações -->
+                <div class="modal-info-col custom-scrollbar">
+                    <button id="close-modal-desktop" class="close-btn desktop-only"><i
+                            class="fas fa-times"></i></button>
+
+                    <span id="modal-category" class="badge-modal"></span>
+                    <h2 id="modal-title" class="modal-title"></h2>
+
+                    <div class="modal-section">
+                        <h3><i class="fas fa-shopping-basket icon-orange"></i> Ingredientes</h3>
+                        <ul id="modal-ingredients" class="ingredients-grid">
+                            <!-- Ingredientes aqui -->
+                        </ul>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3><i class="fas fa-list-ol icon-orange"></i> Modo de Preparo</h3>
+                        <div id="modal-instructions" class="instructions-text">
+                            <!-- Instruções aqui -->
+                        </div>
+                    </div>
+
+                    <div id="modal-youtube-container" class="hidden mt-4 pt-4 border-top">
+                        <!-- Botão do Youtube -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
